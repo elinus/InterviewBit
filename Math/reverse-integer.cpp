@@ -13,9 +13,7 @@ int reverse(int x) {
     rev = 10 * rev + x % 10;
     x /= 10;
   }
-  if (negative && -rev < INT_MIN)
-    return 0;
-  else if (rev > INT_MAX)
+  if ((negative && -rev < INT_MIN) || (rev > INT_MAX))
     return 0;
   else
     return negative ? -rev : rev;

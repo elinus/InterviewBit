@@ -16,7 +16,7 @@ ListNode *mergeTwoLists(ListNode *A, ListNode *B) {
   ListNode dummy(0);
   ListNode *tail = &dummy;
   while (A && B) {
-    if (A->val <= B->val) {
+    if (A->val < B->val) {
       tail->next = A;
       A = A->next;
     } else {
@@ -25,16 +25,11 @@ ListNode *mergeTwoLists(ListNode *A, ListNode *B) {
     }
     tail = tail->next;
   }
-  while (A) {
+  if (A) {
     tail->next = A;
-    A = A->next;
-    tail = tail->next;
   }
-  while (B) {
+  if (B) {
     tail->next = B;
-    B = B->next;
-    tail = tail->next;
   }
-
   return dummy.next;
 }
