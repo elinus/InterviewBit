@@ -17,9 +17,7 @@ TreeNode *solve(TreeNode *A, TreeNode *B) {
   if (!B)
     return A;
   A->val += B->val;
-  if (B->left)
-    A->left = solve(A->left, B->left);
-  if (B->right)
-    A->right = solve(A->right, B->right);
+  A->left = solve(A->left, B->left);
+  A->right = solve(A->right, B->right);
   return A;
 }
