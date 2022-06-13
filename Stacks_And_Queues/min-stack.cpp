@@ -11,7 +11,7 @@ stack<int> s, ms;
 
 void push(int x) {
   s.push(x);
-  if (ms.empty() || (!ms.empty() && x <= ms.top())) {
+  if (ms.empty() || x <= ms.top()) {
     ms.push(x);
   }
 }

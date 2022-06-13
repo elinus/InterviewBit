@@ -42,12 +42,12 @@ vector<int> solve(TreeNode *A) {
         q.push(node->right);
     }
 
-    s.push(move(v));
+    s.push(v);
   }
 
   while (!s.empty()) {
     for (auto i = s.top().begin(); i != s.top().end(); i++) {
-      ans.push_back(*i);
+      ans.emplace_back(*i);
     }
     s.pop();
   }
