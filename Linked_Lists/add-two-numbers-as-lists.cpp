@@ -7,10 +7,8 @@ struct ListNode {
 };
 
 ListNode *addTwoNumbers(ListNode *A, ListNode *B) {
-  if (!A)
-    return B;
-  if (!B)
-    return A;
+  if (!A) return B;
+  if (!B) return A;
   ListNode dummy(INT_MIN);
   ListNode *last = &dummy;
   int carry = 0;

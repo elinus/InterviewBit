@@ -17,12 +17,10 @@ void push(int x) {
 }
 
 void pop() {
-  if (s.empty())
-    return;
+  if (s.empty()) return;
   int val = s.top();
   s.pop();
-  if (val == ms.top())
-    ms.pop();
+  if (val == ms.top()) ms.pop();
 }
 
 int top() { return s.empty() ? -1 : s.top(); }

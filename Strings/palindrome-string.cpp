@@ -7,19 +7,15 @@ using namespace std;
 
 int isPalindrome(string A) {
   transform(A.begin(), A.end(), A.begin(), ::tolower);
-  // cout << "A: " << A << endl;
   int i = 0, j = A.length() - 1;
   while (i < j) {
-    if (!isalnum(A[i]))
-      i++;
-    if (!isalnum(A[j]))
-      j--;
+    if (!isalnum(A[i])) i++;
+    if (!isalnum(A[j])) j--;
     if (isalnum(A[i]) && isalnum(A[j]) && A[i] == A[j]) {
       i++;
       j--;
     }
-    if (isalnum(A[i]) && isalnum(A[j]) && A[i] != A[j])
-      return false;
+    if (isalnum(A[i]) && isalnum(A[j]) && A[i] != A[j]) return false;
   }
   return true;
 }

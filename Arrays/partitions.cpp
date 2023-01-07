@@ -29,8 +29,7 @@ int solve(int A, vector<int> &B) {
   }
 
   // Checking s is divisible by 3 or not
-  if (s % 3 != 0)
-    return 0;
+  if (s % 3 != 0) return 0;
 
   // Calculating the sum of each part
   s /= 3;
@@ -42,14 +41,12 @@ int solve(int A, vector<int> &B) {
   // array otherwise 0.
   for (int i = A - 1; i >= 0; i--) {
     ss += B[i];
-    if (ss == s)
-      cnt[i] = 1;
+    if (ss == s) cnt[i] = 1;
   }
 
   // Calculating the cumulative sum
   // of the array cnt from the last index.
-  for (int i = A - 2; i >= 0; i--)
-    cnt[i] += cnt[i + 1];
+  for (int i = A - 2; i >= 0; i--) cnt[i] += cnt[i + 1];
 
   int ans = 0;
   ss = 0;
@@ -58,14 +55,12 @@ int solve(int A, vector<int> &B) {
   // and cnt array.
   for (int i = 0; i + 2 < A; i++) {
     ss += B[i];
-    if (ss == s)
-      ans += cnt[i + 2];
+    if (ss == s) ans += cnt[i + 2];
   }
   return ans;
 }
 
 int main(int argc, char const *argv[]) {
-
   /* code */
 
   return 0;

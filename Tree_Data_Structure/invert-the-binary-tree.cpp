@@ -12,8 +12,7 @@ struct TreeNode {
 };
 
 TreeNode *invertTree(TreeNode *A) {
-  if (!A)
-    return A;
+  if (!A) return A;
   A->left = invertTree(A->left);
   A->right = invertTree(A->right);
   swap(A->left, A->right);

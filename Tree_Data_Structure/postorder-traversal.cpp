@@ -12,8 +12,7 @@ struct TreeNode {
 };
 
 vector<int> postorderTraversal(TreeNode *A) {
-  if (!A)
-    return {};
+  if (!A) return {};
   stack<TreeNode *> s;
   vector<int> ans;
   while (true) {
@@ -22,8 +21,7 @@ vector<int> postorderTraversal(TreeNode *A) {
       ans.push_back(A->val);
       A = A->right;
     }
-    if (s.empty())
-      break;
+    if (s.empty()) break;
     A = s.top();
     s.pop();
     A = A->left;

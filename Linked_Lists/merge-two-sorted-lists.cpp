@@ -9,10 +9,8 @@ struct ListNode {
 };
 
 ListNode *mergeTwoLists(ListNode *A, ListNode *B) {
-  if (!A)
-    return B;
-  if (!B)
-    return A;
+  if (!A) return B;
+  if (!B) return A;
   ListNode dummy(0);
   ListNode *tail = &dummy;
   while (A && B) {

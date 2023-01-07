@@ -12,10 +12,8 @@ struct TreeNode {
 };
 
 int isSameTree(TreeNode *A, TreeNode *B) {
-  if (!A && !B)
-    return true;
-  if (!A || !B)
-    return false;
+  if (!A && !B) return true;
+  if (!A || !B) return false;
   return A->val == B->val && isSameTree(A->left, B->right) &&
          isSameTree(A->right, B->left);
 }

@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *removeNthFromEnd(ListNode *A, int B) {
-  if (!A)
-    return A;
+  if (!A) return A;
   ListNode *slow = A, *fast = A;
   while (fast && B--) {
     fast = fast->next;

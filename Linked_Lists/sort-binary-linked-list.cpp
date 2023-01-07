@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *solve(ListNode *A) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode list0(INT_MIN), list1(INT_MIN);
   ListNode *p0 = &list0, *p1 = &list1, *curr = A;
   while (curr) {

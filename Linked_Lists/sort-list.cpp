@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *midpoint(ListNode *head) {
-  if (!head || !head->next)
-    return head;
+  if (!head || !head->next) return head;
 
   ListNode *slow = head, *fast = head->next;
   while (fast && fast->next) {
@@ -20,10 +19,8 @@ ListNode *midpoint(ListNode *head) {
 }
 
 ListNode *mergeSortedLists(ListNode *A, ListNode *B) {
-  if (!A)
-    return B;
-  if (!B)
-    return A;
+  if (!A) return B;
+  if (!B) return A;
 
   ListNode *temp;
   if (A->val <= B->val) {

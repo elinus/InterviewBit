@@ -18,8 +18,7 @@ ListNode *reverseList(ListNode *A) {
 }
 
 ListNode *reorderList(ListNode *A) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode *slow = A, *fast = A;
   while (fast->next && fast->next->next) {
     slow = slow->next;

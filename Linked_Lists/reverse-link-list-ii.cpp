@@ -18,8 +18,7 @@ ListNode *reverseList(ListNode *A) {
 }
 
 ListNode *reverseBetween(ListNode *A, int B, int C) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode dummy(INT_MIN);
   ListNode *pre = nullptr, *lt = &dummy, *nex = nullptr, *rt = nullptr;
   lt->next = A;

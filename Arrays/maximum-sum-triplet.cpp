@@ -8,8 +8,7 @@ int solve(vector<int> &A) {
   int n = A.size();
   int dp[n];
   dp[n - 1] = A[n - 1];
-  for (int i = n - 2; i >= 0; i--)
-    dp[i] = max(dp[i + 1], A[i]);
+  for (int i = n - 2; i >= 0; i--) dp[i] = max(dp[i + 1], A[i]);
   int ans = 0;
   set<int> s;
   s.insert(A[0]);

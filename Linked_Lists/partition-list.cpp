@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *partition(ListNode *A, int B) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode part1(INT_MIN), part2(INT_MIN);
   ListNode *p1 = &part1, *p2 = &part2, *curr = A;
   while (curr) {

@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *swapPairs(ListNode *A) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode *nextp = swapPairs(A->next->next);
   ListNode *second = A->next;
   A->next->next = A;

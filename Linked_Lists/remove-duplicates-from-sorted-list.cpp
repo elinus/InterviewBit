@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *deleteDuplicates(ListNode *A) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode dummy(INT_MIN);
   ListNode *tail = &dummy, *curr = A;
   while (curr) {

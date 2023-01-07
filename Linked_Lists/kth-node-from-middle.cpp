@@ -19,8 +19,7 @@ ListNode *reverseList(ListNode *A) {
 }
 
 int solve(ListNode *A, int B) {
-  if (!A || !A->next)
-    return -1;
+  if (!A || !A->next) return -1;
   ListNode *slow = A, *fast = A, *prev = A;
   while (fast->next && fast->next->next) {
     prev = slow;

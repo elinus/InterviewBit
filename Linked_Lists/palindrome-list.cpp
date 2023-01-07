@@ -20,11 +20,9 @@ ListNode *reverseList(ListNode *A) {
 }
 
 bool checkEqual(ListNode *A, ListNode *B) {
-  if (!A && !B)
-    return true;
+  if (!A && !B) return true;
   while (A && B) {
-    if (A->val != B->val)
-      return false;
+    if (A->val != B->val) return false;
     A = A->next;
     B = B->next;
   }
@@ -32,8 +30,7 @@ bool checkEqual(ListNode *A, ListNode *B) {
 }
 
 int lPalin(ListNode *A) {
-  if (!A || !A->next)
-    return true;
+  if (!A || !A->next) return true;
   ListNode *slow = A, *fast = A;
   while (fast->next && fast->next->next) {
     slow = slow->next;

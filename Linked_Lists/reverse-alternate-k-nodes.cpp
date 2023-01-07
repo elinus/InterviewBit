@@ -18,8 +18,7 @@ ListNode *reverseList(ListNode *A) {
 }
 
 ListNode *solve(ListNode *A, int B) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode *prev = nullptr, *curr = A, *start = nullptr, *end = nullptr;
   ListNode dummy(INT_MIN);
   int re_flag = 1;
@@ -34,10 +33,8 @@ ListNode *solve(ListNode *A, int B) {
     if (re_flag) {
       prev->next = nullptr;
       ListNode *tmp = reverseList(start);
-      if (!dummy.next)
-        dummy.next = tmp;
-      if (end)
-        end->next = tmp;
+      if (!dummy.next) dummy.next = tmp;
+      if (end) end->next = tmp;
       start->next = curr;
     }
     re_flag = 1 - re_flag;

@@ -18,8 +18,7 @@ struct TreeNode {
 
 vector<int> solve(TreeNode *A) {
   vector<int> ans;
-  if (!A)
-    return ans;
+  if (!A) return ans;
 
   stack<vector<int>> s;
   queue<TreeNode *> q;
@@ -36,10 +35,8 @@ vector<int> solve(TreeNode *A) {
 
       v.push_back(node->val);
 
-      if (node->left)
-        q.push(node->left);
-      if (node->right)
-        q.push(node->right);
+      if (node->left) q.push(node->left);
+      if (node->right) q.push(node->right);
     }
 
     s.push(v);

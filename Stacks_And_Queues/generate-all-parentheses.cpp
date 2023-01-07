@@ -10,14 +10,10 @@ int isValid(string A) {
     if (A[i] == '[' || A[i] == '{' || A[i] == '(') {
       st.push(A[i]);
     } else if (A[i] == ']' || A[i] == '}' || A[i] == ')') {
-      if (st.empty())
-        return 0;
-      if (A[i] == ']' && st.top() != '[')
-        return 0;
-      if (A[i] == '}' && st.top() != '{')
-        return 0;
-      if (A[i] == ')' && st.top() != '(')
-        return 0;
+      if (st.empty()) return 0;
+      if (A[i] == ']' && st.top() != '[') return 0;
+      if (A[i] == '}' && st.top() != '{') return 0;
+      if (A[i] == ')' && st.top() != '(') return 0;
       st.pop();
     }
   }

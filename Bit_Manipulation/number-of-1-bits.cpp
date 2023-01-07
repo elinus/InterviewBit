@@ -1,10 +1,8 @@
 int numSetBits(unsigned int A) {
-  unsigned int n = A;
-  int ans = 0;
-  while (n) {
-    if (n & 1)
-      ans++;
-    n >>= 1;
+  unsigned int total_ones = 0;
+  while (A) {
+    A = A & (A - 1);
+    total_ones++;
   }
-  return ans;
+  return total_ones;
 }

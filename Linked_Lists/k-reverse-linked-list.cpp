@@ -9,8 +9,7 @@ struct ListNode {
 ListNode *reverseList(ListNode *A, int B) {
   ListNode *curr = A;
   for (int i = 0; i < B; ++i) {
-    if (!curr)
-      return A;
+    if (!curr) return A;
     curr = curr->next;
   }
   ListNode *prev = nullptr, *next = nullptr;

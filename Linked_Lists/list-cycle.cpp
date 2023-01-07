@@ -7,12 +7,10 @@ struct ListNode {
 };
 
 ListNode *detectCycle(ListNode *A) {
-  if (!A || !A->next)
-    return nullptr;
+  if (!A || !A->next) return nullptr;
   ListNode *slow = A, *fast = A;
   bool has_cycle = false;
   while (fast->next && fast->next->next) {
-
     slow = slow->next;
     fast = fast->next->next;
     if (slow == fast) {
@@ -23,8 +21,7 @@ ListNode *detectCycle(ListNode *A) {
   if (has_cycle) {
     slow = A;
     while (true) {
-      if (slow == fast)
-        return slow;
+      if (slow == fast) return slow;
       slow = slow->next;
       fast = fast->next;
     }

@@ -20,8 +20,7 @@ ListNode *helper(ListNode *A, ListNode *B, int diff) {
     A = A->next;
   }
   while (A && B) {
-    if (A == B)
-      return A;
+    if (A == B) return A;
     A = A->next;
     B = B->next;
   }
@@ -29,8 +28,7 @@ ListNode *helper(ListNode *A, ListNode *B, int diff) {
 }
 
 ListNode *getIntersectionNode(ListNode *A, ListNode *B) {
-  if (!A || !B)
-    return nullptr;
+  if (!A || !B) return nullptr;
   int lenA = getLength(A);
   int lenB = getLength(B);
   int diff = lenA - lenB;

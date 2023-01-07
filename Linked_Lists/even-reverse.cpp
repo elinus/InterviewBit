@@ -18,8 +18,7 @@ ListNode *reverseList(ListNode *A) {
 }
 
 ListNode *solve(ListNode *A) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   ListNode oddList(INT_MIN), evenList(INT_MIN);
   ListNode *pOdd = &oddList, *pEven = &evenList, *curr = A;
   int n = 1;

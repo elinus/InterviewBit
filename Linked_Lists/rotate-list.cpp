@@ -7,8 +7,7 @@ struct ListNode {
 };
 
 ListNode *rotateRight(ListNode *A, int B) {
-  if (!A || !A->next)
-    return A;
+  if (!A || !A->next) return A;
   int len = 0;
   ListNode *curr = A, *last = nullptr;
   while (curr) {

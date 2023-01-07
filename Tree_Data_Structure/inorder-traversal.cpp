@@ -12,8 +12,7 @@ struct TreeNode {
 };
 
 vector<int> inorderTraversal(TreeNode *A) {
-  if (!A)
-    return {};
+  if (!A) return {};
   stack<TreeNode *> s;
   vector<int> ans;
   while (true) {
@@ -21,8 +20,7 @@ vector<int> inorderTraversal(TreeNode *A) {
       s.push(A);
       A = A->left;
     }
-    if (s.empty())
-      break;
+    if (s.empty()) break;
     A = s.top();
     ans.push_back(A->val);
     s.pop();
