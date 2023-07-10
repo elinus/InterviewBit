@@ -23,7 +23,6 @@
 #include <limits>
 #include <list>
 #include <map>
-#include <priority_queue>
 #include <queue>
 #include <set>
 #include <sstream>
@@ -45,14 +44,35 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-bool isSame(TreeNode *A, TreeNode *B) {
-    if (!A && !B) return true;
-    if (!A || !B) return false;
-    if (A->val != B->val) return false;
-    return isSame(A->left, B->right) && isSame(A->right, B->left);
-}
+vector<vector<int>> Solution::verticalOrderTraversal(TreeNode *A) {
+    vector<vector<int>> ans;
+    if (!A) return ans;
 
-int isSymmetric(TreeNode *A) { return isSame(A, A); }
+    map<int, vector<int>> mp;
+    int hz_dist = 0;
+
+    queue<pair<TreeNode *, int>> que;
+    que.push(make_pair(A, hz_dist));
+
+    while (!que.empty()) {
+        pair<TreeNode *, int> node_pair = que.front();
+        que.pop();
+
+        hz_dist = node_pair.second;
+        TreeNode *node = node_pair.first;
+
+        mp[hz_dist].push_back(node->val);
+
+        if (node->left) que.push(make_pair(node->left, hz_dist - 1));
+        if (node->right) que.push(make_pair(node->right, hz_dist + 1));
+    }
+
+    for (auto &&itr : mp) {
+        ans.push_back(itr.second);
+    }
+
+    return ans;
+}
 
 int main(int argc, char const *argv[]) {
     /* code */

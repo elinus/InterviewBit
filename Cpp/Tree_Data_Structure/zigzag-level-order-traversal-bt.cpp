@@ -1,41 +1,76 @@
+/**
+ * © 2023 Sunil Mourya. All rights reserved.
+ *
+ * Author: Sunil Mourya
+ * Date of Creation: July 10, 2023
+ * Last Modified: July 10, 2023 (Revision 1)
+ *
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */
+
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <cctype>
+#include <climits>
+#include <cmath>
+#include <cstring>
+#include <deque>
+#include <forward_list>
 #include <iostream>
+#include <limits>
+#include <list>
+#include <map>
+#include <priority_queue>
+#include <queue>
+#include <set>
+#include <sstream>
 #include <stack>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
 
 struct TreeNode {
-  int val;
-  TreeNode *left;
-  TreeNode *right;
-  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
 };
 
 vector<vector<int>> zigzagLevelOrder(TreeNode *A) {
-  vector<vector<int>> result;
-  if (!A) return result;
-  stack<TreeNode *> st1, st2;
-  st1.push(A);
-  while (!st1.empty() || !st2.empty()) {
-    vector<int> v1;
-    while (!st1.empty()) {
-      TreeNode *node = st1.top();
-      st1.pop();
-      v1.push_back(node->val);
-      if (node->left) st2.push(node->left);
-      if (node->right) st2.push(node->right);
-    }
-    if (!v1.empty()) result.push_back(move(v1));
+    vector<vector<int>> ans;
+    if (!A) return ans;
+    queue<TreeNode *> que;
+    que.push(A);
+    int level{0};
+    while (!que.empty()) {
+        int n = que.size();
+        vector<int> tmp;
+        for (int i = 0; i < n; i++) {
+            TreeNode *node = que.front();
+            que.pop();
+            tmp.push_back(node->val);
 
-    vector<int> v2;
-    while (!st2.empty()) {
-      TreeNode *node = st2.top();
-      st2.pop();
-      v2.push_back(node->val);
-      if (node->right) st1.push(node->right);
-      if (node->left) st1.push(node->left);
+            if (node->left) que.push(node->left);
+            if (node->right) que.push(node->right);
+        }
+        if (level % 2) reverse(begin(tmp), end(tmp));
+        ans.push_back(move(tmp));
+        level++;
     }
-    if (!v2.empty()) result.push_back(move(v2));
-  }
-  return result;
+    return ans;
+}
+
+int main(int argc, char const *argv[]) {
+    /* code */
+
+    return 0;
 }

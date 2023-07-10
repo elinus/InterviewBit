@@ -2,8 +2,8 @@
  * © 2023 Sunil Mourya. All rights reserved.
  *
  * Author: Sunil Mourya
- * Date of Creation: July 09, 2023
- * Last Modified: July 09, 2023 (Revision 1)
+ * Date of Creation: July 10, 2023
+ * Last Modified: July 10, 2023 (Revision 1)
  *
  * Time Complexity: O(n)
  * Space Complexity: O(1)
@@ -23,7 +23,6 @@
 #include <limits>
 #include <list>
 #include <map>
-#include <priority_queue>
 #include <queue>
 #include <set>
 #include <sstream>
@@ -45,14 +44,29 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-bool isSame(TreeNode *A, TreeNode *B) {
-    if (!A && !B) return true;
-    if (!A || !B) return false;
-    if (A->val != B->val) return false;
-    return isSame(A->left, B->right) && isSame(A->right, B->left);
+int minDepth(TreeNode *A) {
+    if (!A) return 0;
+    queue<TreeNode *> que;
+    que.push(A);
+    int level{1};
+    bool found_leaf{false};
+    while (!que.empty()) {
+        int n = que.size();
+        for (int i = 0; i < n; i++) {
+            TreeNode *node = que.front();
+            que.pop();
+            if (!node->left && !node->right) {
+                found_leaf = true;
+                break;
+            }
+            if (node->left) que.push(node->left);
+            if (node->right) que.push(node->right);
+        }
+        if (found_leaf) break;
+        level++;
+    }
+    return level;
 }
-
-int isSymmetric(TreeNode *A) { return isSame(A, A); }
 
 int main(int argc, char const *argv[]) {
     /* code */

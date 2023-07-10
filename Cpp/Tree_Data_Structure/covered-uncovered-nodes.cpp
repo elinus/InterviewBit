@@ -6,7 +6,7 @@
  * Last Modified: July 09, 2023 (Revision 1)
  *
  * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Space Complexity: O(n)
  */
 
 #include <algorithm>
@@ -45,14 +45,27 @@ struct TreeNode {
         : val(x), left(left), right(right) {}
 };
 
-bool isSame(TreeNode *A, TreeNode *B) {
-    if (!A && !B) return true;
-    if (!A || !B) return false;
-    if (A->val != B->val) return false;
-    return isSame(A->left, B->right) && isSame(A->right, B->left);
+long Solution::coveredNodes(TreeNode *A) {
+    if (!A) return {};
+    long ans{0}, uncover_sum{0}, uncover_sum{0};
+    queue<TreeNode *> qe;
+    qe.push(A);
+    while (!qe.empty()) {
+        int n = qe.size();
+        for (int i = 0; i < n; i++) {
+            TreeNode *node = qe.front();
+            qe.pop();
+            if (i == 0 || i == (n - 1)) {
+                uncover_sum += node->val;
+            } else {
+                cover_sum += node->val;
+            }
+            if (node->left) qe.push(node->left);
+            if (node->right) qe.push(node->right);
+        }
+    }
+    return abs(uncover_sum - uncover_sum);
 }
-
-int isSymmetric(TreeNode *A) { return isSame(A, A); }
 
 int main(int argc, char const *argv[]) {
     /* code */
